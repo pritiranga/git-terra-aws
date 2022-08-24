@@ -1,12 +1,12 @@
 version: 0.2
 phases:
  install:
-    runtime-versions:
-      python: 3.7
     commands:
-      - "cd /usr/bin"
-      - "curl -s -qL -o terraform.zip https://releases.hashicorp.com/terraform/1.0.5/terraform_1.0.5_linux_amd64.zip"
-      - "unzip -o terraform.zip"
+      - mkdir /opt/terraform
+      - cd /opt/terraform
+      - wget https://releases.hashicorp.com/terraform/1.0.6/terraform_1.0.6_linux_amd64.zip
+      - unzip terraform_1.0.6_linux_amd64.zip
+      - sudo mv terraform /usr/local/bin
   pre_build:
     commands:
       - terraform init
